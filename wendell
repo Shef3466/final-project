@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<head>
+   
+  <meta charset="utf-8">
+
+  <title> CS Final Project</title>
+  <link href="https://fonts.googleapis.com/css/family=Oswald Pacifico" rel="stylesheet">
+  <link rel="style sheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  
+  <h1 id="title" class="center">Let's create an ID card</h1>
+  
+  <div class="center">
+  
+	<form class="center">
+		<label>First Name:</label><input id="FirstName" type="text"><br>
+    <label>Last Name:</label><input id="LastName" type="text"><br>
+    <label>Age:</label><input id="Age" type="text"><br>
+    <label>Phone Number:</label><input id="PhoneNumber" type="text"><br>
+    <label>Address:</label><input id="Address" type="text"><br>
+		 
+  
+	</form>
+	<button onclick= "idCard()" >Get ID</button>
+</div>
+
+	<div class="flex">
+    <div id="idCard">
+ 
+    <img src="https://www.iconninja.com/files/373/611/612/person-user-profile-male-man-avatar-account-icon.svg">
+    <p id="postFullName"></p>
+
+    <p id="postAge"></p>
+
+    <p id="postPhoneNumber"></p>
+
+    <p id="postAddress"></p>
+  </div>
+</div>
+    <scrpit scr="script.js"></scrpit>
+	
+</body>
+
+</html>
+
+js.script
+
+function idCard(){
+  
+  var FirstName = document.getElementById("FirstName").value;
+	var LastName = document.getElementById("LastName").value;
+	var Address = document.getElementById("Address").value;
+  var Age = parseInt(document.getElementById("Age").value);
+  var PhoneNumber = parseInt(document.getElementById("PhoneNumber").value);
+  var FullName = FirstName + " " + LastName;
+  
+  document.getElementById("postfullName").innerHTML= FullName;
+  document.getElementById("postAddress").innerHTML= Address;
+  
+  var numberArray = [];
+  numberArray.push("Age,PhoneNumber");
+  
+	for(var i=0;i < numberArray.length;i++){
+    if (numberArray[i] <= 100) {
+       document.getElementById("postAge").innerHTML=("Age" + "numberArray[i]");
+    }else if (numberArray[i] >= 100){
+       document.getElementById("postPhoneNumber").innerHTML=("PhoneNumber" + "numberArray[i]");
+    }
+}
+	 
+}
+
+ccs
+img {
+  width: 90px;
+  height: 90px;
+  float: left;
+}
+#idCard{
+  border: 5px solid black;
+  height: 14em;
+  width: 25em;
+}
+.center{
+  text-align: center;
+}
+h1{
+    font-family: 'Oswald', sans-serif;
+}
+p{
+    font-family: 'Oswald', sans-serif;
+}
+label{
+    font-size:3em;
+    font-family:'Oswald', sans-serif;
+      width:180px;
+      padding-right:20px;
+      clear:left;
+}
+
+button {
+    background-color: green;
+    border-radius:28px;
+    border:1px solid green;
+    display:inline-block;
+    cursor:pointer;
+    color: #ffffff;
+    font-family: 'Oswald', san-serif;
+   font-size:17px;
+   height: 50px;
+   width: 100px;
+   margin:20px;
+   text-decoration:none;
+   text-shadow:0px 1px 0px #2f6627;
+ }   
+ 
+ button:hover {
+   background-color: #5cbf2a;
+ }
+ button:active{
+   position:relative;
+   top:1px;
+ }
+ .flex{
+   display:flex;
+   justify-content: center;
+   align-items: center;
+ }
